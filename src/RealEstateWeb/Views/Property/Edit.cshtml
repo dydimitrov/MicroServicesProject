@@ -1,0 +1,428 @@
+﻿@model PropertyUpdateViewModel
+<div class="page-header bg-base p-top-30 p-bottom-30">
+    <div class="container">
+
+        <div class="row d-flex align-items-center">
+
+            <div class="col-md-8 text-center-sm">
+                <h3 class="text-white text-uppercase text-bold-700 m-bottom-0">Добави имот</h3>
+            </div>
+
+            <div class="col-md-4 text-right text-center-sm">
+                <ol class="breadcrumb bg-white rounded-0">
+                    <li class="breadcrumb-item"><a href="/">Начало</a></li>
+                    <li class="breadcrumb-item active">Добави имот</li>
+                </ol>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="bg-light-3 p-top-80 p-bottom-80">
+    <div class="container">
+
+        <!-- DATA -->
+
+        <div class="bg-white box-shadow-1 p-top-30 p-bottom-30 p-left-30 p-right-30 m-bottom-30">
+
+            <form asp-controller="Property" asp-action="Edit" method="post" enctype="multipart/form-data">
+
+                <h3 class="text-bold-700 m-bottom-10">Основна информация</h3>
+
+                <div class="hr dark text-left m-bottom-20">
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                    <div class="icons text-light">
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="@Model.Title" class="text-bold-700 text-uppercase text-size-13">Заглавие на обявата</label>
+                            <div class="input-group">
+                                <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <input asp-for="@Model.Title" value="@Model.Title" type="text" name="Title" id="Title" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label asp-for="Currency" class="text-bold-700 text-uppercase text-size-13">Валута</label>
+                            <div class="input-group">
+                                <select asp-for="Currency" name="Currency" id="Currency" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                    <option>-- Select --</option>
+                                    <option value="1">BGN</option>
+                                    <option value="2">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="text-bold-700 text-uppercase text-size-13">Цена</label>
+                            <div class="input-group">
+                                <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <input asp-for="Price" type="text" name="price" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" value="@Model.Price">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PropertyType" class="text-bold-700 text-uppercase text-size-13">Вид на имота</label>
+                            <div class="input-group">
+                                <select asp-for="PropertyType" id="PropertyType" name="PropertyType" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                    <option>-- Select --</option>
+                                    <option value="1">Едностаен</option>
+                                    <option value="2">Двустаен</option>
+                                    <option value="3">Тристаен</option>
+                                    <option value="4">Четиристаен</option>
+                                    <option value="5">Многостаен</option>
+                                    <option value="6">Ателие</option>
+                                    <option value="7">Мезонет</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PropertyPurpose" class="text-bold-700 text-uppercase text-size-13">Предназанчение на имота</label>
+                            <div class="input-group">
+                                <select asp-for="PropertyPurpose" name="PropertyPurpose" id="PropertyPurpose" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                    <option>-- Select --</option>
+                                    <option value="1">За продажба</option>
+                                    <option value="2">Под наем</option>
+                                    <option value="3">За нощувки</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-bold-700 m-top-60 m-bottom-10">Детайли за имота</h3>
+
+                <div class="hr dark text-left m-bottom-20">
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                    <div class="icons text-light">
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="@Model.NumberOfBedrooms" class="text-bold-700 text-uppercase text-size-13">Брой спални</label>
+                            <div class="input-group">
+                                <select asp-for="@Model.NumberOfBedrooms" name="NumberOfBedrooms" id="NumberOfBedrooms" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                    <option>-- Select --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="@Model.NumberOfBeds" class="text-bold-700 text-uppercase text-size-13">Брой легла</label>
+                            <div class="input-group">
+                                <select asp-for="@Model.NumberOfBeds" name="NumberOfBeds" id="NumberOfBeds" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                    <option>-- Select --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="@Model.NumberOfBathrooms" class="text-bold-700 text-uppercase text-size-13">Брой бани</label>
+                            <div class="input-group">
+                                <select asp-for="@Model.NumberOfBathrooms" name="NumberOfBathrooms" id="NumberOfBathrooms" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                    <option>-- Select --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="@Model.PhoneNumber" class="text-bold-700 text-uppercase text-size-13">Мобилен телефон</label>
+                            <div class="input-group">
+                                <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input asp-for="@Model.PhoneNumber" type="text"  value="@Model.PhoneNumber"  id="PhoneNumber" name="PhoneNumber" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Телефонен номер...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="@Model.FirstName" class="text-bold-700 text-uppercase text-size-13">Име</label>
+                            <div class="input-group">
+                                <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <input asp-for="@Model.FirstName" type="text"  value="@Model.FirstName"  id="FirstName" name="FirstName" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Име...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="@Model.LastName" class="text-bold-700 text-uppercase text-size-13">Фамилия</label>
+                            <div class="input-group">
+                                <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <input asp-for="@Model.LastName"  value="@Model.LastName"  type="text" id="LastName" name="LastName" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Фамилия...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="@Model.HomeArea" class="text-bold-700 text-uppercase text-size-13">Застроена площ</label>
+                            <div class="input-group">
+                                <input asp-for="@Model.HomeArea" value="@Model.HomeArea" type="text" id="HomeArea" name="HomeArea" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14 text-right" placeholder="кв.м...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="@Model.TotalArea" class="text-bold-700 text-uppercase text-size-13">Обща площ</label>
+                            <div class="input-group">
+                                <input asp-for="@Model.TotalArea"  value="@Model.TotalArea"  type="text" name="TotalArea" id="TotalArea" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14 text-right" placeholder="кв.м...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="@Model.YearOfBuild" class="text-bold-700 text-uppercase text-size-13">Година на строителство</label>
+                            <div class="input-group">
+                                <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input asp-for="@Model.YearOfBuild"  value="@Model.YearOfBuild"  type="text" name="YearOfBuild" id="YearOfBuild" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Година на строителство">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="PropertyStatus" class="text-bold-700 text-uppercase text-size-13">Статус на имота</label>
+                            <div class="input-group">
+                                <select asp-for="PropertyStatus" name="PropertyStatus" id="PropertyStatus" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                    <option>-- Select --</option>
+                                    <option value="1">Свободен</option>
+                                    <option value="2">Резервиран</option>
+                                    <option value="3">Продаден</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h3 class="text-bold-700 m-top-60 m-bottom-10">Описание</h3>
+
+                <div class="hr dark text-left m-bottom-20">
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                    <div class="icons text-light">
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <textarea asp-for="Description" name="Description" id="Description" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Description" rows="8">@Model.Description</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-bold-700 m-top-60 m-bottom-10">Обществени сгради в близост</h3>
+
+                <div class="hr dark text-left m-bottom-20">
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                    <div class="icons text-light">
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Facilities.FoodStores" class="text-bold-700 text-uppercase text-size-13">Хранителни магазини</label>
+                            <div class="row">
+                                <div class="col-8 input-group p-right-0">
+                                    <input asp-for="Facilities.FoodStores" value="@Model.Facilities.FoodStores" type="number" name="Facilities.FoodStores" id="Facilities.FoodStores" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Магазини">
+                                </div>
+                                <div class="col-4 input-group p-left-0">
+                                    <select asp-for="Facilities.FoodStoreDistance" name="Facilities.FoodStoreDistance" id="Facilities.FoodStoreDistance" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                        <option value="1">min</option>
+                                        <option value="2">km</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Facilities.Hospitals" class="text-bold-700 text-uppercase text-size-13">Болници</label>
+                            <div class="row">
+                                <div class="col-8 input-group p-right-0">
+                                    <input asp-for="Facilities.Hospitals" type="number" value="@Model.Facilities.Hospitals" name="Facilities.Hospitals" id="Facilities.Hospitals" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Болници">
+                                </div>
+                                <div class="col-4 input-group p-left-0">
+                                    <select asp-for="Facilities.HospitalDistance" name="Facilities.HospitalDistance" id="Facilities.HospitalDistance" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                        <option value="1">min</option>
+                                        <option value="2">km</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Facilities.School" class="text-bold-700 text-uppercase text-size-13">Училища</label>
+                            <div class="row">
+                                <div class="col-8 input-group p-right-0">
+                                    <input asp-for="Facilities.School" type="number"  value="@Model.Facilities.School" name="Facilities.School" id="Facilities.School" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Училища">
+                                </div>
+                                <div class="col-4 input-group p-left-0">
+                                    <select asp-for="Facilities.SchoolDistance" name="Facilities.SchoolDistance" id="Facilities.SchoolDistance" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                        <option value="1">min</option>
+                                        <option value="2">km</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-bold-700 m-top-60 m-bottom-10">Местонахождение</h3>
+
+                <div class="hr dark text-left m-bottom-20">
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                    <div class="icons text-light">
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Address.State" class="text-bold-700 text-uppercase text-size-13">Област</label>
+                        <div class="input-group">
+                            <input asp-for="Address.State" value="@Model.Address.State" type="text" name="Address.State" id="Address.State" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Област...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Address.Town" class="text-bold-700 text-uppercase text-size-13">Град</label>
+                        <div class="input-group">
+                            <input asp-for="Address.Town" value="@Model.Address.Town"  type="text" name="Address.Town" id="Address.Town" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Град...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Address.Neighborhood" class="text-bold-700 text-uppercase text-size-13">Квартал</label>
+                        <div class="input-group">
+                            <input asp-for="Address.Neighborhood" value="@Model.Address.Neighborhood"  type="text" name="Address.Neighborhood" id="Address.Neighborhood" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Квартал...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label asp-for="Address.Street" class="text-bold-700 text-uppercase text-size-13">Адрес</label>
+                        <div class="input-group">
+                            <input asp-for="Address.Street" value="@Model.Address.Street"  type="text" name="Address.Street" id="Address.Street" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Адрес...">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 m-top-20 m-bottom-15 text-center">
+                    <input type="submit" class="btn btn-base rounded-0 text-bold-600 text-spacing-5 text-uppercase text-size-13 p-top-12 p-bottom-12 p-left-20 p-right-20" value="Потвърди">
+                </div>
+            </div>
+            </form>
+        </div>
+        <!-- /DATA -->
+
+    </div>
+</div>

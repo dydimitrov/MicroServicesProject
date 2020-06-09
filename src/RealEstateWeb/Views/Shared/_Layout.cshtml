@@ -1,0 +1,159 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>HH Properties</title>
+
+    <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/utility.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+
+    <!-- THEME COLOR -->
+    <link href="/assets/css/colors/blue.css" type="text/css" media="all" rel="stylesheet" />
+
+    <!-- MAIN MENU -->
+    <link rel="stylesheet" type="text/css" href="/assets/vendors/menu/css/bootstrap-extended.css">
+
+    <!-- OWL CAROUSEL SLIDER -->
+    <link rel="stylesheet" type="text/css" href="/assets/vendors/owl.carousel/css/owl.carousel.min.css">
+
+    <!-- SLICK SLIDER -->
+    <link rel="stylesheet" type="text/css" href="/assets/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="/assets/vendors/slick/slick-theme.css">
+
+    <!-- Begin: HTML5SHIV FOR IE8 -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/vendors/js/html5shiv.js"></script>
+      <script src="assets/vendors/js/respond.js"></script>
+    <![endif]-->
+    <!-- end: HTML5SHIV FOR IE8 -->
+</head>
+
+<body data-menu="header-main-menu" class="bg-white body-main-menu header-main-menu">
+
+    <!--
+    #################################
+        - Begin: HEADER -
+    #################################
+    -->
+    <header class="main-header bg-light-2 box-shadow-1">
+
+        <!-- TOGGLE -->
+        <a href="#" class="nav-link nav-menu-main menu-toggle btn btn-base rounded-0">
+            <i class="fa fa-bars"></i>
+        </a>
+        <!-- /TOGGLE -->
+        <!-- TOPBAR -->
+        <div class="inner-header d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-2">
+                        <!-- LOGO -->
+                        <a asp-controller="Home" asp-action="Index" class="navbar-brand logo">
+                            <img class="full-width max-width-130-sm" alt="iProperty" src="/assets/images/logo.png">
+                        </a>
+                        <!-- /LOGO -->
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 text-right">
+                        <div class="extra-info">
+                            <ul>
+                                <li class="m-top-5 hidden-xs hidden-sm hidden-md">
+                                    <i class="fa fa-phone text-base text-size-30"></i>
+                                    <div class="text">
+                                        <div class="text-top text-weight-400 text-muted text-size-13">
+                                            Обади се
+                                        </div>
+                                        <div class="text-bottom text-bold-700 text-black">
+                                            +359 888 888 888
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="m-top-5 hidden-xs hidden-sm hidden-md">
+                                    <i class="fa fa-envelope-o text-base text-size-30"></i>
+                                    <div class="text">
+                                        <div class="text-top text-bold-400 text-muted text-size-13">
+                                            Пишете ни
+                                        </div>
+                                        <div class="text-bottom text-bold-700 text-black">
+                                            info@hhproperties.com
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="m-top-5 hidden-xs hidden-sm hidden-md">
+                                    <i class="fa fa-clock-o text-base text-size-30"></i>
+                                    <div class="text">
+                                        <div class="text-top text-bold-400 text-muted text-size-13">
+                                            Отворено
+                                        </div>
+                                        <div class="text-bottom text-bold-700 text-black">
+                                            Пон - Пет, 09:00 to 18:00
+                                        </div>
+                                    </div>
+                                </li>
+                                @if (this.User.Identity.IsAuthenticated)
+                                {
+                                    <li class="hidden-xs hidden-sm">
+                                        <a asp-controller="Property" asp-action="Create" class="btn btn-base rounded-0 text-bold-600 text-spacing-5 text-uppercase text-size-13 p-top-12 p-bottom-12 p-left-15 p-right-15 text-size-11-lg">Добави имот</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /TOPBAR -->
+        <partial name="_NavBarPartial" />
+
+    </header>
+    <!-- End: HEADER -
+    ################################################################## -->
+
+    <partial name="_CookieConsentPartial" />
+    @RenderBody()
+    <partial name="_FooterPartial" />
+    <!-- End: FOOTER -
+    ################################################################## -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/vendors/appear/jquery.appear.min.js"></script>
+    <script src="/assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/js/tether.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/vendors/common/common.min.js"></script>
+
+    <!-- MAIN MENU -->
+    <script src="/assets/vendors/menu/js/vendors-menu.min.js"></script>
+    <script src="/assets/vendors/menu/js/jquery.sticky.js"></script>
+    <script src="/assets/vendors/menu/js/app-menu.js"></script>
+
+
+    <!-- MASONRY -->
+    <script src="/assets/vendors/isotope/jquery.isotope.min.js"></script>
+
+    <!-- OWL CAROUSEL SLIDER -->
+    <script src="/assets/vendors/owl.carousel/js/owl.carousel.min.js"></script>
+
+    <!-- SILCK SLIDER -->
+    <script src="/assets/vendors/slick/slick.js"></script>
+
+    
+    <!-- THEME-CUSTOM -->
+    <script src="/assets/js/main.js"></script>
+
+    <!-- THEME-INITIALIZATION-FILES -->
+    <script src="/assets/js/theme.init.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

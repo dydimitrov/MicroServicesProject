@@ -1,0 +1,34 @@
+﻿@model List<PropertyIndexViewModel>
+<div class="row">
+
+    <ul class="clearfix full-width" data-plugin-masonry>
+
+        <!-- PROPERTY -->
+        @foreach (var property in Model)
+        {
+            <li class="col-lg-4 col-md-6">
+
+                <div class="property bg-white m-bottom-30 box-shadow-1 box-shadow-3-hover">
+                    <div class="property-media overlay-wrapper">
+                        <img class="full-width full-height" src="@property.PictureUrl" alt="Property 1">
+                        <div class="media-data">
+                            <div class="position-bottom">
+                                <div class="badge badge-success pull-left p-top-8 p-right-12 p-bottom-8 p-left-12 rounded-0">@property.PropertyPurpose</div>
+                            </div>
+                        </div>
+                        <div class="overlay bg-bg opacity-9"></div>
+                    </div>
+                    <div class="property-section p-left-15 p-right-15">
+                        <div class="m-top-20 m-bottom-20">
+                            <h2 class="text-base text-bold-700 m-top-15">@property.Price @property.Currency.ToString()</h2>
+                            <h5><a asp-controller="Property" asp-action="Details" asp-route-id="@property.Id" class="text-bold-600 text-dark text-base-hover">@property.Title</a></h5>
+                            <p>@property.Address.Street, @property.Address.Town</p>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+        }
+        <!-- /PROPERTY -->
+    </ul>
+</div>

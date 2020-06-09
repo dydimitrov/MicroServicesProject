@@ -1,0 +1,22 @@
+﻿@model RealEstateWeb.Models.ViewModels.Home.IndexProperties
+<div class="owl-carousel owl-theme owl-nav-wide" data-plugin-options="{'items': 1, 'margin': 10, 'nav': true, 'dots': false, 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 6000}">
+    @foreach (var property in @Model.Slider)
+    {
+        <div class="bg-no-repeat bg-size-cover" style="background-image: url(@property.PictureUrl)">
+            <div class="property">
+                <div class="property-media overlay-wrapper p-top-100 p-bottom-50">
+                    <div class="container p-top-100">
+                        <div class="badge badge-success p-top-8 p-right-12 p-bottom-8 p-left-12 rounded-0 text-size-14 m-bottom-20">@property.PropertyPurpose</div>
+                        <div class="clearfix"></div>
+                        <h2 class="text-white text-bold-600 text-size-50 text-size-40-sm m-bottom-10">@property.Price @property.Currency.ToString()</h2>
+                        <h5><a asp-controller="Property" asp-action="Details" asp-route-id="@property.Id" class="text-white text-bold-500 text-size-30 text-size-25-sm text-white text-white-hover m-bottom-10">@property.Title</a></h5>
+                        <p class="text-white">@property.Address.Street, @property.Address.State</p>
+                    </div>
+                    <div class="overlay bg-bg opacity-9"></div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<partial name="_IndexPropertiesPartial" model="@Model.BotumList"/>

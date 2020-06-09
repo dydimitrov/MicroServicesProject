@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PropertyListingViewModel>
+
+<div class="bg-light-3 p-top-60 p-bottom-60">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12 m-top-8 m-bottom-20">
+
+                <h5>Открити са @Model.Count() имота</h5>
+
+            </div>
+
+        </div>
+        @foreach (var property in Model)
+        {
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="property bg-white box-shadow-1 box-shadow-3-hover m-bottom-30">
+                        <div class="row">
+                            <div class="col-md-4 match-height vcenter">
+                                <div class="property-media overlay-wrapper">
+                                    <img class="full-width" src="@property.PictureUrl" alt="Property 1">
+                                    <div class="media-data">
+                                        <div class="position-bottom">
+                                            <div class="badge badge-success pull-left p-top-8 p-right-12 p-bottom-8 p-left-12 rounded-0">@property.PropertyPurpose</div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay bg-bg opacity-9"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 match-height vcenter">
+                                <div class="property-section p-right-15 p-left-15 p-top-30-md p-bottom-25-md p-top-30-sm p-bottom-25-sm">
+                                    <div class="m-bottom-20">
+                                        <h2 class="text-base text-bold-700 m-top-15">@property.Price @property.CurrencyType.ToString()</h2>
+                                        <h5><a asp-controller="Property" asp-action="Details" asp-route-id="@property.Id" class="text-bold-600 text-dark text-base-hover">@property.Title</a></h5>
+                                        <p>@property.Address.Street, @property.Address.State</p>
+                                        <p>@property.Description</p>
+                                        <ul class="icon-list m-bottom-0">
+                                            <li><i class="btn btn-base fa fa-bed"></i> @property.Details.NumberOfBeds Beds</li>
+                                            <li><i class="btn btn-base fa fa-tint"></i> @property.Details.NumberOfBathrooms Baths</li>
+                                            <li><i class="btn btn-base fa fa-expand"></i> @property.Details.TotalArea кв.м.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-light-3 text-size-13 text-muted p-top-15 p-right-15 p-bottom-15 p-left-15">
+                                        <ul class="list-unstyled d-flex justify-content-between m-bottom-0">
+                                            <li><i class="m-right-4 fa fa-calendar"></i>Публикуван преди @property.OlderSpan дни</li>
+                                            <li><a asp-controller="Bookmark" asp-action="CreateBookmark" asp-route-id="@property.Id" class="text-base"><i class="m-right-4 fa fa-heart-o"></i> Добави в любими</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        }
+        
+    </div>
+</div>
