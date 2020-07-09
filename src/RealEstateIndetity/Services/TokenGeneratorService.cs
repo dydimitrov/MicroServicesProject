@@ -1,7 +1,5 @@
 ﻿namespace RealEstateIndetity.Services
 {
-    using RealEstateIndetity.Common;
-    using Microsoft.Extensions.Options;
     using RealEstateIndetity.Models;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;

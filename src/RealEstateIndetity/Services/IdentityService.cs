@@ -1,4 +1,6 @@
-﻿namespace RealEstateIndetity.Services
+﻿using RealEstateCommon.Services;
+
+namespace RealEstateIndetity.Services
 {
     using System.Linq;
     using System.Threading.Tasks;

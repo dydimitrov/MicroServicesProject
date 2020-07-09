@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using RealEstateIndetity.Common;
+using RealEstateCommon.Services.Identity;
 using RealEstateIndetity.Models;
 using RealEstateIndetity.Services;
 
 namespace RealEstateIndetity.Controllers
 {
-    
+
     public class UserController : ControllerBase
     {
         private readonly IIdentityService identity;

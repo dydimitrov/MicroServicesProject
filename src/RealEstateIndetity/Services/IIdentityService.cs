@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using RealEstateCommon.Services;
 using RealEstateIndetity.Models;
 
 namespace RealEstateIndetity.Services

@@ -22,11 +22,7 @@
 
 <div class="bg-light-3 p-top-80 p-bottom-80">
     <div class="container">
-
-        <!-- DATA -->
-
         <div class="bg-white box-shadow-1 p-top-30 p-bottom-30 p-left-30 p-right-30 m-bottom-30">
-
             <form asp-controller="Property" asp-action="Create" method="post" enctype="multipart/form-data">
                 <h3 class="text-bold-700 m-bottom-10">Основна информация</h3>
 
@@ -421,36 +417,33 @@
                     </div>
                 </div>
 
+
+
+                <h3 class="text-bold-700 m-top-60 m-bottom-10">Галерия</h3>
+
+                <div class="hr dark text-left m-bottom-10">
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                    <div class="icons text-light">
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input name="Files" type="file" accept="image/*" class="form-control" multiple="multiple">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 m-top-20 m-bottom-15 text-center">
+                        <input type="submit" class="btn btn-base rounded-0 text-bold-600 text-spacing-5 text-uppercase text-size-13 p-top-12 p-bottom-12 p-left-20 p-right-20" value="Submit">
+                    </div>
+                </div>
+
+            </form>
         </div>
-
-
-        <h3 class="text-bold-700 m-top-60 m-bottom-10">Галерия</h3>
-
-        <div class="hr dark text-left m-bottom-10">
-            <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
-            <div class="icons text-light">
-                <i class="fa fa-circle-o"></i>
-                <i class="fa fa-circle-o"></i>
-                <i class="fa fa-circle-o"></i>
-            </div>
-            <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <input name="Files" type="file" accept="image/*" class="form-control" multiple="multiple">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 m-top-20 m-bottom-15 text-center">
-                <input type="submit" class="btn btn-base rounded-0 text-bold-600 text-spacing-5 text-uppercase text-size-13 p-top-12 p-bottom-12 p-left-20 p-right-20" value="Submit">
-            </div>
-        </div>
-
-        </form>
     </div>
-    <!-- /DATA -->
-
-</div>
 </div>
