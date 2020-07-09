@@ -24,15 +24,7 @@ namespace RealEstateWeb.Models.ViewModels.Property
         [MaxLength(ModelConstants.MessageLength)]
         public string Description { get; set; }
 
-        public PropertyType PropertyType { get; set; }
-
-        public PropertyPurpose PropertyPurpose { get; set; }
-
         public AddressCreateViewModel Address { get; set; }
-
-        public NearByFacilities Facilities { get; set; }
-
-        public PropertyStatus PropertyStatus { get; set; }
         
         public int? NumberOfBedrooms { get; set; }
         public int? NumberOfBathrooms { get; set; }

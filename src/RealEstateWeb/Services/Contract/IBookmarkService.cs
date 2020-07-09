@@ -9,7 +9,6 @@ namespace RealEstateWeb.Services.Contract
     {
         bool Create(int id, string username);
 
-        List<BookmarkViewModel> MyBookmarks(string username);
         void Remove(int id);
     }
 }

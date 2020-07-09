@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateWeb", "RealEstateWeb\RealEstateWeb.csproj", "{E5182FCD-EA2A-4C5C-BA29-FFAC8FDDEEB5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateIndetity", "RealEstateIndetity\RealEstateIndetity.csproj", "{49C4C55E-5B6F-4EE2-B2AA-C59A0F36830C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateNewsLetter", "RealEstateNewsLetter\RealEstateNewsLetter.csproj", "{4A9246C5-FD1D-47A7-8DD2-D220503A19C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateCommon", "RealEstateSystem\RealEstateCommon.csproj", "{665699A0-EFB7-43C1-AA1F-584E2EEF53FE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAppointment", "RealEstateAppointment\RealEstateAppointment.csproj", "{F38E680B-B90C-4EF2-A118-59E70ED20BFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAdmin", "RealEstateAdmin\RealEstateAdmin.csproj", "{E143D15C-18CC-4FA2-96FC-4299444D2F90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Identity", "RealEstate.Identity\RealEstate.Identity.csproj", "{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,6 @@ Global
 		{E5182FCD-EA2A-4C5C-BA29-FFAC8FDDEEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5182FCD-EA2A-4C5C-BA29-FFAC8FDDEEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5182FCD-EA2A-4C5C-BA29-FFAC8FDDEEB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49C4C55E-5B6F-4EE2-B2AA-C59A0F36830C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49C4C55E-5B6F-4EE2-B2AA-C59A0F36830C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49C4C55E-5B6F-4EE2-B2AA-C59A0F36830C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49C4C55E-5B6F-4EE2-B2AA-C59A0F36830C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4A9246C5-FD1D-47A7-8DD2-D220503A19C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A9246C5-FD1D-47A7-8DD2-D220503A19C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A9246C5-FD1D-47A7-8DD2-D220503A19C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +37,14 @@ Global
 		{F38E680B-B90C-4EF2-A118-59E70ED20BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38E680B-B90C-4EF2-A118-59E70ED20BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38E680B-B90C-4EF2-A118-59E70ED20BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E143D15C-18CC-4FA2-96FC-4299444D2F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E143D15C-18CC-4FA2-96FC-4299444D2F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E143D15C-18CC-4FA2-96FC-4299444D2F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E143D15C-18CC-4FA2-96FC-4299444D2F90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

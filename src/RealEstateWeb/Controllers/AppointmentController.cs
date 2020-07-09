@@ -10,7 +10,6 @@ using RealEstateWeb.Services.Contract;
 
 namespace RealEstateWeb.Controllers
 {
-    [CustomAuthorize]
     public class AppointmentController : Controller
     {
         private readonly IAppointmentService _service;
@@ -23,7 +22,7 @@ namespace RealEstateWeb.Controllers
         [HttpPost]
         public IActionResult Create(int propertyId)
         {
-            if (propertyId == null)
+            if (propertyId == 0)
             {
                 return this.BadRequest();
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using RealEstateWeb.Data;
 using RealEstateWeb.Models.DbModels;
+using RealEstateWeb.Models.ViewModels.Contact;
 using RealEstateWeb.Services.Contract;
 
 namespace RealEstateWeb.Services
@@ -43,7 +44,7 @@ namespace RealEstateWeb.Services
                 !string.IsNullOrWhiteSpace(subject) &&
                 !string.IsNullOrWhiteSpace(message))
             {
-                var client = new ContactRequest
+                var client = new ContactRequestViewModel
                 {
                     Name = name,
                     Email = email,

@@ -23,10 +23,7 @@ namespace RealEstateWeb.Services
                     Id = p.Id,
                     Title = p.Title,
                     Price = p.Price,
-                    Currency = p.Currency.ToString(),
-                    PictureUrl = p.Pictures.First().CloudUrl,
-                    AddressTown = p.Address.Town,
-                    AddressStreet = p.Address.Street
+                    Currency = p.Currency.ToString()
                 })
                 .ToList();
         }

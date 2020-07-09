@@ -6,6 +6,7 @@ namespace RealEstateWeb.Models.ViewModels.Bookmark
     {
         public int Id { get; set; }
 
-        public PropertyBookmarkViewModel Property { get; set; }
+        public int Property { get; set; }
+        public int User { get; set; }
     }
 }

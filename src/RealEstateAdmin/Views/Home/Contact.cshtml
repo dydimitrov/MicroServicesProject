@@ -1,0 +1,178 @@
+﻿@model ContactRequestViewModel
+<div class="page-header bg-base p-top-30 p-bottom-30">
+    <div class="container">
+
+        <div class="row d-flex align-items-center">
+
+            <div class="col-md-8 text-center-sm">
+                <h3 class="text-white text-uppercase text-bold-700 m-bottom-0">Свържете се с нас</h3>
+            </div>
+
+            <div class="col-md-4 text-right text-center-sm">
+                <ol class="breadcrumb bg-white rounded-0">
+                    <li class="breadcrumb-item"><a asp-action="Index">Начало</a></li>
+                    <li class="breadcrumb-item active">Свържи се с нас</li>
+                </ol>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- End: PAGE HEADER -
+################################################################## -->
+<!--
+#################################
+    - Begin: PAGE CONTENT -
+#################################
+-->
+<div class="bg-light-3 p-top-80 p-bottom-50">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 col-sm-6 m-top-40 m-bottom-40">
+
+                <div class="service bg-white box-shadow-1">
+                    <div class="media">
+                        <i class="fa fa-building-o bg-base text-white rounded-100 box-shadow-1 p-top-5 p-bottom-5 p-right-5 p-left-5"></i>
+                    </div>
+                    <div class="agent-section p-top-35 p-bottom-30 p-right-25 p-left-25">
+                        <h4 class="m-bottom-15 text-size-20 text-bold-600">Пишете ни</h4>
+                        <p>info@hhproperties.com</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 m-top-40 m-bottom-40">
+
+                <div class="service bg-white box-shadow-1">
+                    <div class="media">
+                        <i class="fa fa-building-o bg-base text-white rounded-100 box-shadow-1 p-top-5 p-bottom-5 p-right-5 p-left-5"></i>
+                    </div>
+                    <div class="agent-section p-top-35 p-bottom-30 p-right-25 p-left-25">
+                        <h4 class="m-bottom-15 text-size-20 text-bold-600">Свържете се с нас</h4>
+                        <p>+359 888 888-888</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 m-top-40 m-bottom-40">
+
+                <div class="service bg-white box-shadow-1">
+                    <div class="media">
+                        <i class="fa fa-shield bg-base text-white rounded-100 box-shadow-1 p-top-5 p-bottom-5 p-right-5 p-left-5"></i>
+                    </div>
+                    <div class="agent-section p-top-35 p-bottom-30 p-right-25 p-left-25">
+                        <h4 class="m-bottom-15 text-size-20 text-bold-600">Посетете ни</h4>
+                        <p>Пловдив, ул.Кап.Райчо 56 ТЦ Гранд</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 m-top-40 m-bottom-40">
+
+                <div class="service bg-white box-shadow-1">
+                    <div class="media">
+                        <i class="fa fa-bullhorn bg-base text-white rounded-100 box-shadow-1 p-top-5 p-bottom-5 p-right-5 p-left-5"></i>
+                    </div>
+                    <div class="agent-section p-top-35 p-bottom-30 p-right-25 p-left-25">
+                        <h4 class="m-bottom-15 text-size-20 text-bold-600">Последвайте ни</h4>
+                        <ul class="social-icons">
+                            <li>
+                                <a class="btn btn-base btn-sm rounded-0" href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a class="btn btn-base btn-sm rounded-0" href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a class="btn btn-base btn-sm rounded-0" href="#"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="bg-white p-top-80 p-bottom-80">
+    <div class="container">
+
+        <!-- AGENCY DETAIL -->
+        <div class="row">
+
+            <div class="col-lg-12 col-md-8 m-bottom-30">
+                <h3 class="text-bold-700 text-center m-bottom-10">Контактна форма</h3>
+
+                <div class="hr dark text-center m-bottom-20">
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                    <div class="icons text-light">
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                </div>
+
+                <p></p>
+
+                <div class="clearfix m-top-30">
+                    <form method="post" asp-controller="Home" asp-action="Contact">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input asp-for="Name" type="text" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" name="Name" placeholder="Name">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input asp-for="Email" type="email" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" name="Email" placeholder="Email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input asp-for="PhoneNumber" type="text" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" name="PhoneNumber" placeholder="Phone">
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input asp-for="City" type="text" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" name="City" placeholder="City">
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input asp-for="Subject" type="text" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" name="Subject" placeholder="Subject">
+                                    <span asp-validation-for="Subject" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea asp-for="Message" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" rows="4" name="Message" placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" class="btn btn-base rounded-0 text-bold-600 text-spacing-5 text-uppercase text-size-13 p-top-12 p-bottom-12 p-left-25 p-right-25" value="Изпрати">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /AGENCY DETAIL -->
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

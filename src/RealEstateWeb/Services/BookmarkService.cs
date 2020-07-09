@@ -22,43 +22,26 @@ namespace RealEstateWeb.Services
 
         public bool Create(int id, string username)
         {
-            var user = this._context.Users.FirstOrDefault(u => u.UserName == username);
+            //var user = this._context.Users.FirstOrDefault(u => u.UserName == username);
             var property = this._context.Properties.FirstOrDefault(p => p.Id == id);
-            if (user !=null && property !=null)
+
+            try
             {
-                var bookmark = new BookmarkedProperty
+                var bookmark = new BookmarkViewModel
                 {
-                    Property = property,
-                    User = user
+                    Property = 1,
+                    User = 1
                 };
 
                 this._context.Bookmarks.Add(bookmark);
                 this._context.SaveChanges();
                 return true;
             }
-            return false;
+            catch (Exception)
+            {
+                return false;
+            }
         }
-
-        public List<BookmarkViewModel> MyBookmarks(string username)
-        {
-            return this._context.Bookmarks
-                .Where(b => b.User.UserName == username)
-                .Select(b => new BookmarkViewModel()
-                {
-                    Id = b.Id,
-                    Property = new PropertyBookmarkViewModel()
-                    {
-                        Id = b.Property.Id,
-                        Price = b.Property.Price,
-                        Currency = b.Property.Currency.ToString(),
-                        Title = b.Property.Title,
-                        PictureUrl = b.Property.Pictures.FirstOrDefault().CloudUrl,
-                        AddressStreet = b.Property.Address.Street,
-                        AddressTown = b.Property.Address.Town
-                    }
-                }).ToList();
-        }
-
         public void Remove(int id)
         {
             var bookmark = this._context.Bookmarks.FirstOrDefault(b => b.Id == id);

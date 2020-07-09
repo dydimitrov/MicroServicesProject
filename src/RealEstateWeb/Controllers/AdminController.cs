@@ -4,7 +4,6 @@ using RealEstateWeb.Services.Contract;
 
 namespace RealEstateWeb.Controllers
 {
-    [CustomAuthorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IAdminService _service;

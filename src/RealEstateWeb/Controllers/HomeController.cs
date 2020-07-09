@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using CloudinaryDotNet;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using RealEstateWeb.Infrastructure;
-using RealEstateWeb.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using RealEstateWeb.Models.ViewModels.Contact;
 using RealEstateWeb.Models.ViewModels.Home;
 using RealEstateWeb.Services.Contract;
@@ -27,19 +18,7 @@ namespace RealEstateWeb.Controllers
 
         public IActionResult Index()
         {
-            var modelSlider = this._propertiyService.IndexProperties();
-            var modelBotumn = this._propertiyService.RandomProperties();
-            var model = new IndexProperties()
-            {
-                Slider = modelSlider,
-                BotumList = modelBotumn
-            };
-
-            if (modelSlider == null || modelSlider.Count ==0 || modelBotumn == null || modelBotumn.Count == 0)
-            {
-                return this.View("IndexNoProperties");
-            }
-            return View(model);
+                return this.View();
         }
 
         public IActionResult About()
@@ -57,7 +36,7 @@ namespace RealEstateWeb.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                this._service.CreateContactRequest( model.Name,  model.Email, model.PhoneNumber, model.City, model.Subject, model.Message);
+                this._service.CreateContactRequest(model.Name, model.Email, model.PhoneNumber, model.City, model.Subject, model.Message);
             }
             else
             {

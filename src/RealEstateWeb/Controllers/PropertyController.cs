@@ -23,14 +23,12 @@ namespace RealEstateWeb.Controllers
         }
 
         
-        [CustomAuthorize]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        [CustomAuthorize]
         public IActionResult Create(PropertyCreateViewModel model)
         {
             if (!this.ModelState.IsValid)
@@ -67,7 +65,6 @@ namespace RealEstateWeb.Controllers
             return View(model);
         }
         
-        [CustomAuthorize]
         public IActionResult MyProperty()
         {
             var user = this.User.Identity.Name;
@@ -76,7 +73,6 @@ namespace RealEstateWeb.Controllers
         }
 
         [HttpPost]
-        [CustomAuthorize]
         public IActionResult Remove(int id)
         {
             var resutl = this._service.Remove(id);
@@ -90,7 +86,6 @@ namespace RealEstateWeb.Controllers
             }
         }
 
-        [CustomAuthorize]
         public IActionResult Edit(int id)
         {
             var model = this._service.Edit(id);
@@ -98,7 +93,6 @@ namespace RealEstateWeb.Controllers
         }
 
         [HttpPost]
-        [CustomAuthorize]
         public IActionResult Edit(PropertyUpdateViewModel model)
         {
             if (this.ModelState.IsValid)

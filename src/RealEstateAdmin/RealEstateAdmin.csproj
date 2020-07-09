@@ -1,0 +1,287 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>RealEstateAdmin</AssemblyName>
+    <RootNamespace>RealEstateAdmin</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\bootstrap.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\bootstrap.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\alphagreen.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\autumn.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\blue.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\cherry.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\golden.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\limegreen.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\orange.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\pink.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\purple.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\colors\skyblue.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\font-awesome.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\main.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\responsive.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\utility.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\fontawesome-webfont.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\fontawesome-webfont.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\fontawesome-webfont.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\fontawesome-webfont.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\fontawesome-webfont.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\FontAwesome.otf" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\glyphicons-halflings-regular.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\glyphicons-halflings-regular.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\glyphicons-halflings-regular.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\author-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\favicon.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\floor-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\hhproperties.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\logo-white.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\logo.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\property\rsz_2.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\property\rsz_3.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\property\rsz_4.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\images\video-thumb.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\bootstrap.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\bootstrap.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\jquery-3.1.1.slim.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\jquery.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\main.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\npm.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\tether.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\theme.init.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\appear\jquery.appear.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\common\common.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fancybox\jquery.fancybox.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fancybox\jquery.fancybox.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fancybox\jquery.fancybox.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fancybox\jquery.fancybox.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fileuploader\css\jquery.fileuploader-theme-thumbnails.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fileuploader\css\jquery.fileuploader.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fileuploader\js\custom.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fileuploader\js\jquery.fileuploader.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\fileuploader\js\jquery.fileuploader.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\gmap\jquery.axgmap.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\isotope\jquery.isotope.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\jquery.easing\jquery.easing.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\js\html5shiv.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\js\respond.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\menu\css\bootstrap-extended.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\menu\js\app-menu.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\menu\js\jquery.sticky.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\menu\js\vendors-menu.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\owl.carousel\css\owl.carousel.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\owl.carousel\css\owl.theme.default.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\owl.carousel\js\owl.carousel.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\ajax-loader.gif" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\config.rb" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\fonts\slick.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\fonts\slick.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\fonts\slick.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\fonts\slick.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick-theme.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick-theme.less" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick-theme.scss" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick.less" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\slick\slick.scss" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\css\demo.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\10.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\11.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\12.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\7.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\8.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\9.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-4.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-5.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-6.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-7.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-8.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\images\bg-9.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\js\demo.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\switcher\js\jquery.cookie.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Refit.HttpClientFactory" Version="5.1.67" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RealEstateSystem\RealEstateCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation-unobtrusive\.bower.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation\.bower.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation\dist\additional-methods.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation\dist\additional-methods.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation\dist\jquery.validate.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation\LICENSE.md">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\.bower.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\dist\core.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\dist\jquery.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\dist\jquery.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\dist\jquery.min.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\jquery.cookie\component.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\jquery.cookie\cookie.jquery.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\jquery.cookie\jquery.cookie.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\jquery.cookie\MIT-LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

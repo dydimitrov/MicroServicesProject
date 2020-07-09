@@ -1,89 +1,112 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RealEstateWeb.Models;
-using RealEstateWeb.Models.DbModels;
-using RealEstateWeb.Models.ViewModels.Users;
+using Newtonsoft.Json;
+using RealEstateCommon.Infrastructure;
+using RealEstateCommon.Models.Identity;
+using RealEstateWeb.Models.Identity;
+using RealEstateWeb.Services.EndpointServices;
+using Refit;
+using static RealEstateCommon.Infrastructure.InfrastructureConstants;
 
 namespace RealEstateWeb.Controllers
 {
-    public class UsersController : BaseController
+    public class UsersController : Controller
     {
-        private SignInManager<ApplicationUser> _signInManager;
+        private readonly IIdentityService identityService;
+        private readonly IMapper mapper;
 
-        public UsersController(SignInManager<ApplicationUser> signIn)
+        public UsersController(
+            IIdentityService identityService,
+            IMapper mapper)
         {
-            this._signInManager = signIn;
+            this.identityService = identityService;
+            this.mapper = mapper;
         }
 
         public IActionResult Login()
         {
-            if (this.User.Identity.IsAuthenticated)
-            {
-                return this.RedirectToAction("Index", "Home");
-            }
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Login(LoginViewModel model)
-        {
-            var user = this._signInManager.UserManager.Users.FirstOrDefault(u => u.UserName == model.Username);
-            if (user != null)
-            {
-                this._signInManager.SignInAsync(user, true).Wait();
-            }
-            else
-            {
-                return this.Login();
-            }
-            return RedirectToAction("Index", "Home");
-
-        }
 
         public IActionResult Register()
         {
-            if (this.User.Identity.IsAuthenticated)
-            {
-                return this.RedirectToAction("Index", "Home");
-            }
             return View();
         }
 
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> Login(LoginFormModel model)
+        //    => await this.Handle(
+        //        async () =>
+        //        {
+        //            var modelToSend = new UserInputModel() { Email = model.Email, Password = model.Password };
+        //            var result = await this.identityService
+        //                .Login(modelToSend);
+
+        //            this.Response.Cookies.Append(
+        //                AuthenticationCookieName,
+        //                result.Token,
+        //                new CookieOptions
+        //                {
+        //                    HttpOnly = true,
+        //                    Secure = true,
+        //                    MaxAge = TimeSpan.FromDays(1)
+        //                });
+        //        },
+        //        success: RedirectToAction(nameof(HomeController.Index), "Index"),
+        //        failure: View("../Home/Index", model));
+
         [HttpPost]
-        public IActionResult Register(RegisterViewModel model)
-        {
-            var user = new ApplicationUser()
-            {
-                Email = model.Email,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                UserName = model.Username,
-                PhoneNumber = model.PhoneNumber
-            };
-            var result = this._signInManager.UserManager.CreateAsync(user, model.Password).Result;
-
-            if (this._signInManager.UserManager.Users.Count() == 1)
-            {
-                var roleResult = this._signInManager.UserManager.AddToRoleAsync(user, "Admin").Result;
-                if (roleResult.Errors.Any())
+        [AllowAnonymous]
+        public async Task<IActionResult> Register(RegisterFormModel model)
+            => await this.Handle(
+                async () =>
                 {
-                    return this.View();
-                }
-            }
+                    var result = await this.identityService
+                        .Register(model.Email, model.Password);
+                },
+                success: RedirectToAction(nameof(UsersController.Login), "Index"),
+                failure: View("../Home/Index", model));
 
-            if (result.Succeeded)
-            {
+        [AuthorizeAdministrator]
+        public IActionResult Logout()
+        {
+            this.Response.Cookies.Delete(AuthenticationCookieName);
 
-                this._signInManager.SignInAsync(user, false).Wait();
-                return this.RedirectToAction("Index", "Home");
-            }
-            return this.View();
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
+        protected async Task<ActionResult> Handle(Func<Task> action, ActionResult success, ActionResult failure)
+        {
+            try
+            {
+                await action();
+                return success;
+            }
+            catch (ApiException exception)
+            {
+                this.ProcessErrors(exception);
+                return failure;
+            }
+        }
 
+        private void ProcessErrors(ApiException exception)
+        {
+            if (exception.HasContent)
+            {
+                JsonConvert
+                    .DeserializeObject<List<string>>(exception.Content)
+                    .ForEach(error => this.ModelState.AddModelError(string.Empty, error));
+            }
+            else
+            {
+                this.ModelState.AddModelError(string.Empty, "Internal server error.");
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using RealEstateIndetity.Models;
+using RealEstateCommon.Models.Identity;
 using Refit;
 
 namespace RealEstateWeb.Services.EndpointServices
@@ -8,5 +8,8 @@ namespace RealEstateWeb.Services.EndpointServices
     {
         [Post("/Identity/Login")]
         Task<UserOutputModel> Login([Body] UserInputModel loginInput);
+
+        [Post("/Identity/Register")]
+        Task<UserOutputModel> Register([Body] string Email, string Password);
     }
 }

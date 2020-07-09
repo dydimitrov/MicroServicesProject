@@ -26,7 +26,7 @@ namespace RealEstateCommon.Models
                 const string mappingMethodName = "Mapping";
 
                 var methodInfo = type.GetMethod(mappingMethodName)
-                                 ?? type.GetInterface("IMapFrom`1")?.GetMethod(mappingMethodName);
+                                 ?? type.GetInterface("IMapFrom")?.GetMethod(mappingMethodName);
 
                 methodInfo?.Invoke(instance, new object[] { this });
             }

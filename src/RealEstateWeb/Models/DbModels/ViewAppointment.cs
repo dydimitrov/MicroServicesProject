@@ -9,15 +9,6 @@ namespace RealEstateWeb.Models.DbModels
         public string Id { get; set; }
 
         public DateTime DateOfAppointment { get; set; }
-
-        [ForeignKey("PropertyId")]
-        public Property Property { get; set; }
         public int PropertyId { get; set; }
-
-        [ForeignKey("BuyerId")]
-        public Client Buyer { get; set; }
-        public int BuyerId { get; set; }
-
-        public ApplicationUser Agent { get; set; }
     }
 }

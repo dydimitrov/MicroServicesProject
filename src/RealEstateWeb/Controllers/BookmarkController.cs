@@ -9,7 +9,6 @@ using RealEstateWeb.Services.Contract;
 
 namespace RealEstateWeb.Controllers
 {
-    [CustomAuthorize]
     public class BookmarkController : BaseController
     {
         private readonly IBookmarkService _service;
@@ -30,14 +29,7 @@ namespace RealEstateWeb.Controllers
             }
             return this.RedirectToAction("All", "Property");
         }
-        
-        public IActionResult MyBookmarks()
-        {
-            var username = this.User.Identity.Name;
-            var model = this._service.MyBookmarks(username);
-            return this.View(model);
-        }
-        
+                
         public IActionResult Remove(int id)
         {
             this._service.Remove(id);
