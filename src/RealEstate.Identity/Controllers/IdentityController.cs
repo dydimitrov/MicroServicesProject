@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem.Identity.Controllers
+﻿namespace RealEstate.Identity.Controllers
 {
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authorization;

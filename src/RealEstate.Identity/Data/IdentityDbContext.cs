@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem.Identity.Data
+﻿namespace RealEstate.Identity.Data
 {
     using System.Reflection;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

@@ -1,4 +1,4 @@
-﻿namespace RealEstateAdmin.Models.ViewModels.Contact
+﻿namespace RealEstate.Models.ViewModels.Contact
 {
     public class ContactRequestViewModel
     {

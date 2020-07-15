@@ -6,13 +6,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using RealEstateAdmin.Models.Identity;
-using RealEstateAdmin.Services.Identity;
-using RealEstateCommon.Infrastructure;
+using RealEstate.Models.Identity;
+using RealEstate.Services.Identity;
 using Refit;
 using static RealEstateCommon.Infrastructure.InfrastructureConstants;
 
-namespace RealEstateAdmin.Controllers
+namespace RealEstate.Controllers
 {
     public class UsersController : Controller
     {
@@ -74,10 +73,12 @@ namespace RealEstateAdmin.Controllers
                 success: RedirectToAction(nameof(UsersController.Login), "Users"),
                 failure: View("../Users/Register", model));
 
-        [AuthorizeAdministrator]
         public IActionResult Logout()
         {
-            this.Response.Cookies.Delete(AuthenticationCookieName);
+            if (this.User.Identity.IsAuthenticated)
+            {
+                this.Response.Cookies.Delete(AuthenticationCookieName);
+            }                
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }

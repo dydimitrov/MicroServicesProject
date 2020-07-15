@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateCommon", "RealEst
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAppointment", "RealEstateAppointment\RealEstateAppointment.csproj", "{F38E680B-B90C-4EF2-A118-59E70ED20BFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAdmin", "RealEstateAdmin\RealEstateAdmin.csproj", "{E143D15C-18CC-4FA2-96FC-4299444D2F90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate", "RealEstateAdmin\RealEstate.csproj", "{E143D15C-18CC-4FA2-96FC-4299444D2F90}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Identity", "RealEstate.Identity\RealEstate.Identity.csproj", "{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Properties", "RealEstate.Properties\RealEstate.Properties.csproj", "{3BD0C0A7-0186-4E92-B8E4-37575A4B4087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5134672E-3804-4CFC-B6B4-B0B6AFDCB1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD0C0A7-0186-4E92-B8E4-37575A4B4087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD0C0A7-0186-4E92-B8E4-37575A4B4087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD0C0A7-0186-4E92-B8E4-37575A4B4087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD0C0A7-0186-4E92-B8E4-37575A4B4087}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

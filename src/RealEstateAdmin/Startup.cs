@@ -1,19 +1,21 @@
-namespace RealEstateAdmin
-{
-    using System.Reflection;
-    using Infrastructure;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
-    using RealEstateAdmin.Services;
-    using RealEstateAdmin.Services.Identity;
-    using RealEstateCommon.Infrastructure;
-    using RealEstateCommon.Services.Identity;
-    using Refit;
+using System.Reflection;
+using RealEstate.Infrastructure;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using RealEstateCommon.Infrastructure;
+using RealEstateCommon.Services.Identity;
+using Refit;
+using RealEstate.Services;
+using RealEstate.Services.Identity;
+using RealEstate.Services.NewsLetter;
+using RealEstate.Services.Properties;
 
+namespace RealEstate
+{
     public class Startup
     {
         public Startup(IConfiguration configuration) => this.Configuration = configuration;
@@ -37,6 +39,14 @@ namespace RealEstateAdmin
             services
                 .AddRefitClient<IIdentityService>()
                 .WithConfiguration(serviceEndpoints.Identity);
+
+            services
+                .AddRefitClient<IInformationService>()
+                .WithConfiguration(serviceEndpoints.News);
+
+            services
+                .AddRefitClient<IPropertiesService>()
+                .WithConfiguration(serviceEndpoints.Property);
 
             services.AddMvc();
         }

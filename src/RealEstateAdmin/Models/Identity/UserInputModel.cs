@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RealEstateCommon.Models;
+﻿using RealEstateCommon.Models;
 
-namespace RealEstateAdmin.Models.Identity
+namespace RealEstate.Models.Identity
 {
     public class UserInputModel : IMapFrom<RegisterFormModel>
     {

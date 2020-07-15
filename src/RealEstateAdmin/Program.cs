@@ -1,4 +1,4 @@
-namespace RealEstateAdmin
+namespace RealEstate
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

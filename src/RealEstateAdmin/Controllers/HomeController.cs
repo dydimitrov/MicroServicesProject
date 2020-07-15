@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace RealEstateAdmin.Controllers
+namespace RealEstate.Controllers
 {
     public class HomeController : Controller
     {

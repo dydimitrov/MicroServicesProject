@@ -1,4 +1,4 @@
-namespace CarRentalSystem.Identity
+namespace RealEstate.Identity
 {
     using Data;
     using Infrastructure;

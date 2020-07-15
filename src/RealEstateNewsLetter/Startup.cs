@@ -28,15 +28,17 @@ namespace RealEstateNewsLetter
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddWebService<NewsLetterDbContext>(this.Configuration);
+                .AddWebService<NewsLetterDbContext>(this.Configuration)
+                .AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app
-            .UseWebService(env)
-            .UseJwtHeaderAuthentication();
+            .UseWebService(env);
+
+            app.UseHttpsRedirection();
         }
     }
 }

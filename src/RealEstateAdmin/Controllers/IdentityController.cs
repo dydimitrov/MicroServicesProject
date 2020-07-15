@@ -1,4 +1,4 @@
-﻿namespace RealEstateAdmin.Controllers
+﻿namespace RealEstate.Controllers
 {
     using System;
     using System.Threading.Tasks;

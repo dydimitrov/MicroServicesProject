@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem.Identity.Services.Identity
+﻿namespace RealEstate.Identity.Services.Identity
 {
     using System.Threading.Tasks;
     using Data.Models;

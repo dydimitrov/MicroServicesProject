@@ -1,7 +1,7 @@
-﻿namespace RealEstateAdmin.Services.Identity
+﻿namespace RealEstate.Services.Identity
 {
     using System.Threading.Tasks;
-    using RealEstateAdmin.Models.Identity;
+    using RealEstate.Models.Identity;
     using Refit;
 
     public interface IIdentityService

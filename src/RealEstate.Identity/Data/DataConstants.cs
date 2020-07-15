@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem.Identity.Data
+﻿namespace RealEstate.Identity.Data
 {
     public class DataConstants
     {

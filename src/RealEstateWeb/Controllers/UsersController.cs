@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using RealEstateAdmin.Models.Identity;
+using RealEstateAdmin.Services.Identity;
 using RealEstateCommon.Infrastructure;
-using RealEstateCommon.Models.Identity;
-using RealEstateWeb.Models.Identity;
-using RealEstateWeb.Services.EndpointServices;
 using Refit;
 using static RealEstateCommon.Infrastructure.InfrastructureConstants;
 
-namespace RealEstateWeb.Controllers
+namespace RealEstateAdmin.Controllers
 {
     public class UsersController : Controller
     {
@@ -38,28 +38,28 @@ namespace RealEstateWeb.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Login(LoginFormModel model)
-        //    => await this.Handle(
-        //        async () =>
-        //        {
-        //            var modelToSend = new UserInputModel() { Email = model.Email, Password = model.Password };
-        //            var result = await this.identityService
-        //                .Login(modelToSend);
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginFormModel model)
+            => await this.Handle(
+                async () =>
+                {
+                    var modelToSend = new UserInputModel() { Email = model.Email, Password = model.Password };
+                    var result = await this.identityService
+                        .Login(modelToSend);
 
-        //            this.Response.Cookies.Append(
-        //                AuthenticationCookieName,
-        //                result.Token,
-        //                new CookieOptions
-        //                {
-        //                    HttpOnly = true,
-        //                    Secure = true,
-        //                    MaxAge = TimeSpan.FromDays(1)
-        //                });
-        //        },
-        //        success: RedirectToAction(nameof(HomeController.Index), "Index"),
-        //        failure: View("../Home/Index", model));
+                    this.Response.Cookies.Append(
+                        AuthenticationCookieName,
+                        result.Token,
+                        new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true,
+                            MaxAge = TimeSpan.FromDays(1)
+                        });
+                },
+                success: RedirectToAction(nameof(HomeController.Index), "Home"),
+                failure: View("../Home/Index", model));
 
         [HttpPost]
         [AllowAnonymous]
@@ -67,11 +67,12 @@ namespace RealEstateWeb.Controllers
             => await this.Handle(
                 async () =>
                 {
+                    var mdl = new UserInputModel() { Email = model.Email, Password = model.Password };
                     var result = await this.identityService
-                        .Register(model.Email, model.Password);
+                        .Register(mdl);
                 },
-                success: RedirectToAction(nameof(UsersController.Login), "Index"),
-                failure: View("../Home/Index", model));
+                success: RedirectToAction(nameof(UsersController.Login), "Users"),
+                failure: View("../Users/Register", model));
 
         [AuthorizeAdministrator]
         public IActionResult Logout()

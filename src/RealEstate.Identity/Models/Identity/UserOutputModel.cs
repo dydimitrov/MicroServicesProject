@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem.Identity.Models.Identity
+﻿namespace RealEstate.Identity.Models.Identity
 {
     public class UserOutputModel
     {

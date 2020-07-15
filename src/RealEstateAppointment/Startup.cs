@@ -20,7 +20,8 @@ namespace RealEstateNewsLetter
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddWebService<AppointmentDbContext>(this.Configuration);
+                .AddWebService<AppointmentDbContext>(this.Configuration)
+                .AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,6 +29,8 @@ namespace RealEstateNewsLetter
         {
             app
             .UseWebService(env);
+
+            app.UseHttpsRedirection();
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace CarRentalSystem.Identity
+namespace RealEstate.Identity
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

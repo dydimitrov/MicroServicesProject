@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem.Identity.Data.Models
+﻿namespace RealEstate.Identity.Data.Models
 {
     using Microsoft.AspNetCore.Identity;
 

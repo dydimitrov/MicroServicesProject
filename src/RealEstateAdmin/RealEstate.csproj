@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>RealEstateAdmin</AssemblyName>
-    <RootNamespace>RealEstateAdmin</RootNamespace>
+    <AssemblyName>RealEstate</AssemblyName>
+    <RootNamespace>RealEstate</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

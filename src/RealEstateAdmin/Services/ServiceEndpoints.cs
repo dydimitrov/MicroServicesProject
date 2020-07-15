@@ -1,4 +1,4 @@
-﻿namespace RealEstateAdmin.Services
+﻿namespace RealEstate.Services
 {
     using System;
     using System.Linq;
@@ -7,9 +7,11 @@
     {
         public string Identity { get; private set; }
 
-        public string Statistics { get; private set; }
+        public string News { get; private set; }
 
-        public string Dealers { get; private set; }
+        public string Appointment { get; private set; }
+
+        public string Property { get; set; }
 
         public string this[string service] 
             => this.GetType()

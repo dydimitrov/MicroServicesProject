@@ -1,4 +1,4 @@
-﻿namespace RealEstateAdmin.Infrastructure
+﻿namespace RealEstate.Infrastructure
 {
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Builder;
