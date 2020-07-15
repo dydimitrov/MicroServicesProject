@@ -8,7 +8,6 @@
     using RealEstateCommon.Infrastructure;
     using Refit;
 
-    [AuthorizeAdministrator]
     public abstract class AdministrationController : Controller
     {
         protected async Task<ActionResult> Handle(Func<Task> action, ActionResult success, ActionResult failure)

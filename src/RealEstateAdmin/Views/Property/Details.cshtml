@@ -1,0 +1,111 @@
+﻿@model Property
+<div class="bg-white box-shadow-1 z-index-10 position-relative p-top-60 p-bottom-30">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="clearfix">
+                    <div class="badge badge-success pull-left m-bottom-15 p-top-8 p-right-12 p-bottom-8 p-left-12 rounded-0">Ново</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="m-bottom-30 clearfix">
+                    <h2>@Model.Title</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="m-bottom-30 text-right">
+                    <h1 class="text-bold-700 text-base">@Model.Price @Model.Currency</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="bg-light-3 p-top-60 p-bottom-60">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="row">
+                    <div class="col-md-12 m-bottom-30">
+                        <div class="bg-white text-center card-body p-top-30 p-bottom-30 p-left-30 p-right-30 box-shadow-1">
+                            <h3 class="text-bold-700 text-center m-bottom-10">Описание</h3>
+
+                            <div class="hr dark text-center m-bottom-20">
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                                <div class="icons text-light">
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                </div>
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                            </div>
+
+                            <p>@Model.Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 m-bottom-30">
+                        <div class="bg-white card-body p-top-30 p-bottom-30 p-left-30 p-right-30 box-shadow-1">
+                            <h3 class="text-bold-700 text-center m-bottom-10">Адрес</h3>
+
+                            <div class="hr dark text-center m-bottom-20">
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                                <div class="icons text-light">
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                </div>
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                            </div>
+
+                            <div class="row m-bottom-30">
+                                <div class="col-md-12">
+                                    <div class="col-6 text-center">@Model.Address</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 m-bottom-30">
+                        <div class="bg-white card-body p-top-30 p-bottom-30 p-left-30 p-right-30 box-shadow-1">
+                            <h3 class="text-bold-700 text-center m-bottom-10">Галерия</h3>
+
+                            <div class="hr dark text-center m-bottom-20">
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                                <div class="icons text-light">
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                </div>
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                            </div>
+
+                            <div class="row m-bottom-30">
+                                <div class="col-md-12">
+                                    <img src="@Model.PictureUrl" style="width:inherit;height:inherit" alt="Alternate Text" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 m-bottom-30">
+                        <form asp-controller="Appointment" asp-action="Create" asp-route-propertyId="@Model.Id" method="post">
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-outline-info rounded-0 text-bold-600 text-spacing-5 text-uppercase text-size-13 m-bottom-10 p-left-15 p-right-15 m-right-4">Организирай оглед</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

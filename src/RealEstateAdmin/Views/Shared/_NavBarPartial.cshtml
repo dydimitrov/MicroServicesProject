@@ -18,6 +18,12 @@
             <li class="nav-item">
                 <a asp-controller="Property" asp-action="All" class="nav-link"><i class="fa fa-home"></i> <span>Имоти</span></a>
             </li>
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a asp-controller="Property" asp-action="MyProperty" class="nav-link"><i class="fa fa-home"></i> <span>Моите имоти</span></a>
+                </li>
+            }
         </ul>
         @if (this.User.Identity.IsAuthenticated)
         {

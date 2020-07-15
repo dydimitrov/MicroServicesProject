@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RealEstate.Models;
 using RealEstate.Services.Properties;
+using RealEstateCommon.Models;
 
 namespace RealEstate.Controllers
 {
-    public class PropertyController : Controller
+    public class PropertyController : AdministrationController
     {
         private readonly IPropertiesService _service;
         public PropertyController(IPropertiesService service)
         {
             _service = service;
         }
-        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -34,42 +35,42 @@ namespace RealEstate.Controllers
             return null;
         }
 
-        //public IActionResult All()
-        //{
-        //    var model = this._service.AllProperty();
-        //    return View(model);
-        //}
+        public async Task<IActionResult> All()
+        {
+                var model = await this._service.All();
+                return View(model);
+        }
 
-        //public IActionResult Details(int id)
-        //{
-        //   var model = this._service.Details(id);
-        //    if (model == null)
-        //    {
-        //        return this.RedirectToAction("Error", "Home");
-        //    }
-        //    return View(model);
-        //}
+        public async Task<IActionResult> Details(int id)
+        {
+            var model = await this._service.Details(id);
+            if (model == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+            return View(model);
+        }
 
-        //public IActionResult MyProperty()
-        //{
-        //    var user = this.User.Identity.Name;
-        //    var model = this._service.MyProperties(user);
-        //    return this.View(model);
-        //}
+        public async Task<IActionResult> MyProperty()
+        {
+            var user = this.User.Identity.Name;
+            var model = await this._service.GetPropertiesByUsername(user);
+            return this.View(model);
+        }
 
-        //[HttpPost]
-        //public IActionResult Remove(int id)
-        //{
-        //    var resutl = this._service.Remove(id);
-        //    if (resutl)
-        //    {
-        //        return this.RedirectToAction("MyProperty", "Property");
-        //    }
-        //    else
-        //    {
-        //        return  new BadRequestObjectResult("The property can not be found!");
-        //    }
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Remove(int id)
+        {
+            var resutl = await this._service.Delete(id);
+            if (resutl)
+            {
+                return this.RedirectToAction("MyProperty", "Property");
+            }
+            else
+            {
+                return new BadRequestObjectResult("The property can not be found!");
+            }
+        }
 
         //public IActionResult Edit(int id)
         //{

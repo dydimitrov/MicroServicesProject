@@ -5,6 +5,7 @@ namespace RealEstate.Properties
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using RealEstate.Properties.Services;
     using RealEstateCommon.Infrastructure;
 
     public class Startup
@@ -14,9 +15,11 @@ namespace RealEstate.Properties
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-            => services
-                .AddWebService<PropertiesDbContext>(this.Configuration);
-
+        {
+            services
+                  .AddWebService<PropertiesDbContext>(this.Configuration);
+            services.AddTransient<IPropertyService, PropertyService>();
+        }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app

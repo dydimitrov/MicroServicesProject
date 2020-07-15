@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RealEstate.Models.Enums
+﻿namespace RealEstate.Models.Enums
 {
     public enum CurrencyType
     {

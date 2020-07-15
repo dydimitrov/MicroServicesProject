@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RealEstate.Properties.Data;
 using RealEstate.Properties.Models;
 using RealEstate.Properties.Models.Enums;
+using RealEstate.Properties.Services;
 
 namespace RealEstate.Properties.Controllers
 {    
     public class PropertyController : Controller
     {
-        private readonly PropertiesDbContext _context;
-        public PropertyController(PropertiesDbContext context)
+        private readonly IPropertyService _service;
+        public PropertyController(IPropertyService service)
         {
-            _context = context;
+            _service = service;
         }
         [Route("/Properties/Create")]
         [HttpPost]
@@ -31,10 +35,28 @@ namespace RealEstate.Properties.Controllers
                 OwnerId = ownerId,
                 PictureUrl = pictureUrl
             };
-            await _context.Properties.AddAsync(property);
-            await _context.SaveChangesAsync();
+            await _service.Save(property);
             return property.Id;
         }
 
+        [Route("/Properties/Details")]
+        [HttpGet]
+        public async Task<Property> Details(int id)
+            => await this._service.FindById(id);
+
+        [Route("/Properties/All")]
+        [HttpGet]
+        public async Task<IEnumerable<Property>> All()
+            => await this._service.GetAll();
+
+        [Route("/Properties/MyProperties")]
+        [HttpGet]
+        public async Task<IEnumerable<Property>> MyProperties(string username)
+            => await this._service.GetAll();
+
+        [Route("/Properties/Delete")]
+        [HttpPost]
+        public async Task<bool> Delete(int id)
+            => await this._service.Delete(id);
     }
 }
