@@ -1,0 +1,162 @@
+﻿@model Property
+<div class="page-header bg-base p-top-30 p-bottom-30">
+    <div class="container">
+
+        <div class="row d-flex align-items-center">
+
+            <div class="col-md-8 text-center-sm">
+                <h3 class="text-white text-uppercase text-bold-700 m-bottom-0">Редактирай</h3>
+            </div>
+
+            <div class="col-md-4 text-right text-center-sm">
+                <ol class="breadcrumb bg-white rounded-0">
+                    <li class="breadcrumb-item"><a href="/">Начало</a></li>
+                    <li class="breadcrumb-item active">Редактирай</li>
+                </ol>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="bg-light-3 p-top-80 p-bottom-80">
+    <div class="container">
+
+        <!-- DATA -->
+
+        <div class="bg-white box-shadow-1 p-top-30 p-bottom-30 p-left-30 p-right-30 m-bottom-30">
+
+            <form asp-controller="Property" asp-action="Edit" method="post" enctype="multipart/form-data">
+
+                <div class="bg-light-3 p-top-80 p-bottom-80">
+                    <div class="container">
+                        <div class="bg-white box-shadow-1 p-top-30 p-bottom-30 p-left-30 p-right-30 m-bottom-30">
+                            <h3 class="text-bold-700 text-center m-bottom-10">Основна информация</h3>
+
+                            <div class="hr dark text-center m-bottom-20">
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                                <div class="icons text-light">
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                </div>
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Title" class="text-bold-700 text-uppercase text-size-13">Заглавие на обявата</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                                <i class="fa fa-home"></i>
+                                            </div>
+                                            <input asp-for="Title" type="text" name="Title" id="Title" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Заглавие на обявата">
+                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label asp-for="Currency" class="text-bold-700 text-uppercase text-size-13">Валута</label>
+                                        <div class="input-group">
+                                            <select asp-for="Currency" name="Currency" id="Currency" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14">
+                                                <option>-- Select --</option>
+                                                <option value="1">BGN</option>
+                                                <option value="2">EUR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Price" class="text-bold-700 text-uppercase text-size-13">Цена</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon bg-light-7 border-1 border-light rounded-0 width-40 text-center">
+                                                <i class="fa fa-money"></i>
+                                            </div>
+                                            <input asp-for="Price" type="text" name="price" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Цена">
+                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <h3 class="text-bold-700 text-center m-top-60 m-bottom-10">Адрес</h3>
+
+                            <div class="hr dark text-center m-bottom-20">
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                                <div class="icons text-light">
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                </div>
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input type="text" asp-for="Address" name="Address" id="Address" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Адрес" rows="8" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-bold-700 text-center m-top-60 m-bottom-10">Описание</h3>
+
+                            <div class="hr dark text-center m-bottom-20">
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                                <div class="icons text-light">
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                </div>
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <textarea asp-for="Description" name="Description" id="Description" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Описание" rows="8"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-bold-700 text-center m-top-60 m-bottom-10">Добави линк към снимка</h3>
+
+                            <div class="hr dark text-center m-bottom-20">
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                                <div class="icons text-light">
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-circle-o"></i>
+                                </div>
+                                <hr class="border-3 border-double border-light border-left-0 border-top-0 border-right-0">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input type="text" asp-for="PictureUrl" name="PictureUrl" id="PictureUrl" class="form-control form-control-lg rounded-0 bg-light-5 text-size-14" placeholder="Линк към снимка" rows="8">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 m-top-20 m-bottom-15 text-center">
+                                    <input type="submit" class="btn btn-base rounded-0 text-bold-600 text-spacing-5 text-uppercase text-size-13 p-top-12 p-bottom-12 p-left-20 p-right-20" value="Запази">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /DATA -->
+
+    </div>
+</div>

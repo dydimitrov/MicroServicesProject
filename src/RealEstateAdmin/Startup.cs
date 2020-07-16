@@ -13,6 +13,8 @@ using RealEstate.Services;
 using RealEstate.Services.Identity;
 using RealEstate.Services.NewsLetter;
 using RealEstate.Services.Properties;
+using RealEstate.Services.Bookmarks;
+using RealEstate.Services.BookmarksGatewey;
 
 namespace RealEstate
 {
@@ -47,6 +49,14 @@ namespace RealEstate
             services
                 .AddRefitClient<IPropertiesService>()
                 .WithConfiguration(serviceEndpoints.Property);
+
+            services
+                .AddRefitClient<IBookmarkService>()
+                .WithConfiguration(serviceEndpoints.Bookmark);
+
+            services
+                .AddRefitClient<IBookmarkGatewayService>()
+                .WithConfiguration(serviceEndpoints.BookmarkGateway);
 
             services.AddMvc();
         }

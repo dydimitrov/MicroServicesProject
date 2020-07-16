@@ -32,7 +32,7 @@ namespace RealEstate.Controllers
 
             var result = await _service.Create(model.Title,model.Currency, model.Price,model.Description,model.CreatedOn,model.Address, this.User.Identity.Name, model.PictureUrl);
 
-            return null;
+            return RedirectToAction("Details", "Property", new { id = result });
         }
 
         public async Task<IActionResult> All()
@@ -72,21 +72,21 @@ namespace RealEstate.Controllers
             }
         }
 
-        //public IActionResult Edit(int id)
-        //{
-        //    var model = this._service.Edit(id);
-        //    return this.View(model);
-        //}
+        public async Task<IActionResult> Edit(int id)
+        {
+            var model = await this._service.Details(id);
+            return this.View(model);
+        }
 
-        //[HttpPost]
-        //public IActionResult Edit(PropertyUpdateViewModel model)
-        //{
-        //    if (this.ModelState.IsValid)
-        //    {
-        //        this._service.Update(model);
-        //    }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Property model)
+        {
+            if (this.ModelState.IsValid)
+            {
+               await this._service.Edit(model.Id, model.Title, model.Currency, model.Price,model.Description,model.CreatedOn,model.Address,model.OwnerId,model.PictureUrl);
+            }
 
-        //    return this.RedirectToAction("Details","Property", new {id = model.Id});
-        //}
+            return this.RedirectToAction("Details", "Property", new { id = model.Id });
+        }
     }
 }

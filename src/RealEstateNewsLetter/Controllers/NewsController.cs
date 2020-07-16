@@ -5,6 +5,7 @@ using RealEstateCommon.Controllers;
 using RealEstateNewsLetter.Data;
 using RealEstateNewsLetter.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace RealEstateNewsLetter.Controllers
 {
@@ -28,18 +29,18 @@ namespace RealEstateNewsLetter.Controllers
         [Route("/News/All")]
         public async Task<IEnumerable<NewsLetterClient>> All()
         {
-            return _context.Subscribers.ToList();
+            return await _context.Subscribers.ToListAsync();
         }
 
         [HttpGet]
         [Route("/News/Delete")]
         public async Task<bool> Delete(int id)
         {
-            var model = _context.Subscribers.Where(x => x.Id == id).FirstOrDefault();
+            var model = await _context.Subscribers.Where(x => x.Id == id).FirstAsync();
             if (model != null)
             {
                 _context.Subscribers.Remove(model);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return true;
             }
             return false;

@@ -24,5 +24,11 @@ namespace RealEstate.Services.Properties
 
         [Post("/Properties/Delete")]
         Task<bool> Delete(int id);
+
+        [Post("/Properties/Edit")]
+        Task<int> Edit(int id, string title, CurrencyType currency, decimal price, string description, DateTime createdOn, string address, string ownerId, string pictureUrl);
+
+        [Get("/Properties/NewestProperty")]
+        Task<IEnumerable<Property>> NewestProperty();
     }
 }

@@ -54,9 +54,37 @@ namespace RealEstate.Properties.Controllers
         public async Task<IEnumerable<Property>> MyProperties(string username)
             => await this._service.GetAll();
 
+        [Route("/Properties/NewestProperty")]
+        [HttpGet]
+        public async Task<IEnumerable<Property>> NewestProperty()
+        { 
+            var properties = _service.GetAll().GetAwaiter().GetResult().OrderByDescending(x => x.CreatedOn).Take(3);
+            return properties;
+        }
+
         [Route("/Properties/Delete")]
         [HttpPost]
         public async Task<bool> Delete(int id)
             => await this._service.Delete(id);
+
+        [Route("/Properties/Edit")]
+        [HttpPost]
+        [Authorize]
+        public async Task<int> Create(int id, string title, CurrencyType currency, decimal price, string description, DateTime createdOn, string address, string ownerId, string pictureUrl)
+        {
+            var property = await _service.FindById(id);
+
+            property.Title = title;
+            property.Currency = currency;
+            property.Price = price;
+            property.Description = description;
+            property.CreatedOn = createdOn;
+            property.Address = address;
+            property.OwnerId = ownerId;
+            property.PictureUrl = pictureUrl;
+
+            await _service.Save(property);
+            return property.Id;
+        }
     }
 }

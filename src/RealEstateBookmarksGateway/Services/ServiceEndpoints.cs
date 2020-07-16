@@ -1,20 +1,13 @@
-﻿namespace RealEstate.Services
+﻿namespace RealEstate.Bookmarks.Gateway.Services
 {
     using System;
     using System.Linq;
 
     public class ServiceEndpoints
     {
-        public string Identity { get; private set; }
-
-        public string News { get; private set; }
-
-        public string Appointment { get; private set; }
-
         public string Property { get; set; }
 
         public string Bookmark { get; set; }
-        public string BookmarkGateway { get; set; }
 
         public string this[string service] 
             => this.GetType()
