@@ -15,6 +15,7 @@ using RealEstate.Services.NewsLetter;
 using RealEstate.Services.Properties;
 using RealEstate.Services.Bookmarks;
 using RealEstate.Services.BookmarksGatewey;
+using RealEstate.Services.Statistic;
 
 namespace RealEstate
 {
@@ -57,6 +58,10 @@ namespace RealEstate
             services
                 .AddRefitClient<IBookmarkGatewayService>()
                 .WithConfiguration(serviceEndpoints.BookmarkGateway);
+
+            services
+                .AddRefitClient<IStatisticService>()
+                .WithConfiguration(serviceEndpoints.Statistic);
 
             services.AddMvc();
         }

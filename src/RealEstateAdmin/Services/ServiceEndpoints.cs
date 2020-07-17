@@ -15,6 +15,7 @@
 
         public string Bookmark { get; set; }
         public string BookmarkGateway { get; set; }
+        public string Statistic { get; set; }
 
         public string this[string service] 
             => this.GetType()

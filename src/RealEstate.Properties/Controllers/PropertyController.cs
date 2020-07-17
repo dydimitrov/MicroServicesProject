@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,15 +10,18 @@ using RealEstate.Properties.Data;
 using RealEstate.Properties.Models;
 using RealEstate.Properties.Models.Enums;
 using RealEstate.Properties.Services;
+using RealEstateCommon.Messages;
 
 namespace RealEstate.Properties.Controllers
 {    
     public class PropertyController : Controller
     {
         private readonly IPropertyService _service;
-        public PropertyController(IPropertyService service)
+        private readonly IBus _publisher;
+        public PropertyController(IPropertyService service,IBus publisher)
         {
             _service = service;
+            _publisher = publisher;
         }
         [Route("/Properties/Create")]
         [HttpPost]
@@ -36,6 +40,12 @@ namespace RealEstate.Properties.Controllers
                 PictureUrl = pictureUrl
             };
             await _service.Save(property);
+
+            await this._publisher.Publish(new PropertyCreatedMessage
+            {
+                PropertyId =property.Id
+            });
+
             return property.Id;
         }
 

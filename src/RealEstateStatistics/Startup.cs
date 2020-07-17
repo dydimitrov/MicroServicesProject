@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using RealEstateCommon.Infrastructure;
-using RealEstateNewsLetter.Data;
+using RealEstateCommon.Services;
+using RealEstateStatistics.Data;
+using RealEstateStatistics.Messages;
+using RealEstateStatistics.Services;
 
-namespace RealEstateNewsLetter
+namespace RealEstateStatistics
 {
     public class Startup
     {
@@ -28,8 +23,10 @@ namespace RealEstateNewsLetter
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddWebService<NewsLetterDbContext>(this.Configuration)
-                .AddMessaging()
+                .AddWebService<StatisticDbContext>(this.Configuration)
+                .AddTransient<IDataSeeder, StatisticsDataSeeder>()
+                .AddTransient<IStatisticService, StatisticService>()
+                .AddMessaging(typeof(PropertyCreateConsumer))
                 .AddControllers();
         }
 
@@ -37,7 +34,8 @@ namespace RealEstateNewsLetter
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app
-            .UseWebService(env);
+            .UseWebService(env)
+            .Initialize();
 
             app.UseHttpsRedirection();
         }

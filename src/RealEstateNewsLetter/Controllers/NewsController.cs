@@ -6,6 +6,8 @@ using RealEstateNewsLetter.Data;
 using RealEstateNewsLetter.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using MassTransit;
+using RealEstateCommon.Messages;
 
 namespace RealEstateNewsLetter.Controllers
 {
@@ -13,9 +15,11 @@ namespace RealEstateNewsLetter.Controllers
     public class NewsController : ApiController
     {
         private readonly NewsLetterDbContext _context;
-        public NewsController(NewsLetterDbContext context)
+        private readonly IBus _publisher;
+        public NewsController(NewsLetterDbContext context, IBus _publisher)
         {
             _context = context;
+            _publisher = _publisher;
         }
         [HttpPost]
         [Route("/News/Create")]
@@ -23,6 +27,10 @@ namespace RealEstateNewsLetter.Controllers
         {
             _context.Subscribers.Add(new NewsLetterClient() { Email = email });
             await _context.SaveChangesAsync();
+            await _publisher.Publish(new NewsLetterCreatedMessage()
+            {
+                Email = email
+            });
         }
 
         [HttpGet]

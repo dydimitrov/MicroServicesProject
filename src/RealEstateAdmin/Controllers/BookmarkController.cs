@@ -20,7 +20,6 @@ namespace RealEstate.Controllers
         public BookmarkController(IBookmarkService service, IPropertiesService propertyService, IBookmarkGatewayService gatewayService)
         {
             _service = service;
-            _propertyService = propertyService;
             _gatewayService = gatewayService;
         }
 

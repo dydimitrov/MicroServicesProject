@@ -1,0 +1,51 @@
+﻿@model Statistics
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Статистика</h1>
+<div class="bg-light-3 p-top-80 p-bottom-80">
+    <div class="container">
+
+        <!-- DATA -->
+        <div class="bg-white m-bottom-40 box-shadow-1">
+            <table class="table">
+                <thead class="bg-dark text-white">
+                    <tr class="valign-middle">
+                        <th class="width-150 p-top-20 p-bottom-20" colspan="2">
+                            <i class="fa fa-home"></i>
+                            Публикувани Имоти
+                        </th>
+                        <th class="width-150 p-top-20 p-bottom-20" colspan="2">
+                            <i class="fa fa-magic"></i>
+                            Насрочени огледи
+                        </th>
+                        <th class="width-150 p-top-20 p-bottom-20" colspan="2">
+                            <i class="fa fa-magic"></i>
+                            Регистрирани за бюлетин
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="valign-middle">
+                        <td class="col-4">
+                            <div class="row">
+                                <p>@Model.PropertyCount бр.</p>
+                            </div>
+                        </td>
+                        <td class="col-4">
+                            <div class="row">
+                                <p>@Model.AppointmentCount бр.</p>
+                            </div>
+                        </td>
+                        <td class="col-4">
+                            <div class="row">
+                                <p>@Model.NewsLetterCount бр.</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

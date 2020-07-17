@@ -17,7 +17,8 @@ namespace RealEstate.Properties
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                  .AddWebService<PropertiesDbContext>(this.Configuration);
+                  .AddWebService<PropertiesDbContext>(this.Configuration)
+                  .AddMessaging();
             services.AddTransient<IPropertyService, PropertyService>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

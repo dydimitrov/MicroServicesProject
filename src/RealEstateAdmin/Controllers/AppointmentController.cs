@@ -30,6 +30,5 @@ namespace RealEstate.Controllers
             return this.RedirectToAction("Details", "Property", new { id = propertyId });
 
         }
-
     }
 }

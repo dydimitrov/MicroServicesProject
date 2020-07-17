@@ -21,6 +21,7 @@ namespace RealEstateNewsLetter
         {
             services
                 .AddWebService<AppointmentDbContext>(this.Configuration)
+                .AddMessaging()
                 .AddControllers();
         }
 

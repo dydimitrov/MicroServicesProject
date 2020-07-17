@@ -10,8 +10,5 @@ namespace RealEstate.Services.Appointment
     {
         [Post("/Appointment/Create")]
         Task Create(int propertyId, string username);
-
-        [Post("/Appointment/Delete")]
-        Task<bool> Create(int appointmentId);
     }
 }

@@ -8,6 +8,6 @@ namespace RealEstateNewsLetter.Models
 
         public DateTime DateOfAppointment { get; set; }
         public int PropertyId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }
