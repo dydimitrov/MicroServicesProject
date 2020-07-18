@@ -4,6 +4,7 @@ namespace RealEstate.Identity
     using Infrastructure;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using RealEstateCommon.Infrastructure;
@@ -23,7 +24,11 @@ namespace RealEstate.Identity
                 .AddTransient<ITokenGeneratorService, TokenGeneratorService>();
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-            => app
-                .UseWebService(env);
+        {
+            app
+                    .UseWebService(env);
+            var scope = app.ApplicationServices.CreateScope();
+            scope.ServiceProvider.GetService<IdentityDbContext>().Database.Migrate();
+        } 
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RealEstateCommon.Infrastructure;
@@ -38,6 +39,8 @@ namespace RealEstateStatistics
             .Initialize();
 
             app.UseHttpsRedirection();
+            var scope = app.ApplicationServices.CreateScope();
+            scope.ServiceProvider.GetService<StatisticDbContext>().Database.Migrate();
         }
     }
 }

@@ -30,6 +30,7 @@ namespace RealEstateAppointment.Controllers
                 PropertyId = propertyId
             };
             await _context.Appointments.AddAsync(model);
+            await _context.SaveChangesAsync();
             await _publisher.Publish(new AppointmentCreatedMessage()
             {
                 PropertyId = model.PropertyId

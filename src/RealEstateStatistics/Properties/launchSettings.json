@@ -1,13 +1,17 @@
-﻿{
+{
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "RealEstateStatistics": {
       "commandName": "Project",
-      "launchBrowser": false,
-      "applicationUrl": "https://localhost:5014;http://localhost:5015",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:5014;http://localhost:5015"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true
     }
   }
 }

@@ -1,0 +1,160 @@
+version: "3.8"
+
+services:
+
+    data:
+        container_name: sqlserver
+        image: mcr.microsoft.com/mssql/server:2017-latest
+        ports: 
+            - "1433:1433"
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=Password1234@@
+        volumes: 
+            - sqldata:/var/opt/mssql 
+        networks: 
+            - realestatesystem-network
+    
+    messages:
+        container_name: rabbitmq
+        image: rabbitmq:3-management
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        hostname: "rabbitmq"
+        environment:
+            - RABBITMQ_ERLANG_COOKIE=Rand0mR4bbitMqCo0k1e
+            - RABBITMQ_DEFAULT_USER=rabbitmq
+            - RABBITMQ_DEFAULT_PASS=rabbitmq
+        networks: 
+            - realestatesystem-network         
+
+
+    identity:
+        container_name: identity
+        build:
+            context: ./
+            dockerfile: ./RealEstate.Identity/Dockerfile
+        ports: 
+            - "5001:80"
+        env_file: RealEstateSystem/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstateIdentityDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true            
+        restart: on-failure 
+        volumes:
+            - ./.aspnet/identity/DataProtection-Keys:/root/.aspnet/DataProtection-Keys        
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - data 
+            
+    properties:
+        container_name: properties
+        build:
+            context: ./
+            dockerfile: ./RealEstate.Properties/Dockerfile
+        ports: 
+            - "5007:80"
+        env_file: RealEstateSystem/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstatePropertiesDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true
+        restart: on-failure
+        volumes:
+            - ./.aspnet/properties/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - data 
+            
+    bookmarks:
+        container_name: bookmarks
+        build:
+            context: ./
+            dockerfile: ./RealEstateBookmarks/Dockerfile
+        ports: 
+            - "5010:80"
+        env_file: RealEstateSystem/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstateBookmarksDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true
+        restart: on-failure
+        volumes:
+            - ./.aspnet/bookmarks/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - data 
+            
+    bookmarksgateway:
+        container_name: bookmarksgateway
+        build:
+            context: ./
+            dockerfile: ./RealEstateBookmarksGateway/Dockerfile
+        ports: 
+            - "5012:80"
+        env_file: RealEstateSystem/Common.env
+        volumes:
+            - ./.aspnet/bookmarksgateway/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - bookmarks 
+            - properties
+            
+    appointment:
+        container_name: appointment
+        build:
+            context: ./
+            dockerfile: ./RealEstateAppointment/Dockerfile
+        ports: 
+            - "5005:80"
+        env_file: RealEstateSystem/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstateAppointmentDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true
+        restart: on-failure
+        volumes:
+            - ./.aspnet/appointment/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - data 
+            
+    newsletter:
+        container_name: newsletter
+        build:
+            context: ./
+            dockerfile: ./RealEstateNewsLetter/Dockerfile
+        ports: 
+            - "5003:80"
+        env_file: RealEstateSystem/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstateNewsLetterDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true
+        restart: on-failure
+        volumes:
+            - ./.aspnet/newsletter/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - data
+    statistic:
+        container_name: statistic
+        build:
+            context: ./
+            dockerfile: ./RealEstateStatistics/Dockerfile
+        ports: 
+            - "5014:80"
+        env_file: RealEstateSystem/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstateStatisticDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true
+        restart: on-failure
+        volumes:
+            - ./.aspnet/statistic/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - data
+            
+networks:
+    realestatesystem-network:
+
+volumes:
+    sqldata:
