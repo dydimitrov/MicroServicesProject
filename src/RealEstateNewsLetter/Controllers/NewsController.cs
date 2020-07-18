@@ -16,10 +16,10 @@ namespace RealEstateNewsLetter.Controllers
     {
         private readonly NewsLetterDbContext _context;
         private readonly IBus _publisher;
-        public NewsController(NewsLetterDbContext context, IBus _publisher)
+        public NewsController(NewsLetterDbContext context, IBus publisher)
         {
             _context = context;
-            _publisher = _publisher;
+            _publisher = publisher;
         }
         [HttpPost]
         [Route("/News/Create")]

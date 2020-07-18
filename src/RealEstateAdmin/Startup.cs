@@ -16,6 +16,7 @@ using RealEstate.Services.Properties;
 using RealEstate.Services.Bookmarks;
 using RealEstate.Services.BookmarksGatewey;
 using RealEstate.Services.Statistic;
+using RealEstate.Services.Appointment;
 
 namespace RealEstate
 {
@@ -62,6 +63,10 @@ namespace RealEstate
             services
                 .AddRefitClient<IStatisticService>()
                 .WithConfiguration(serviceEndpoints.Statistic);
+
+            services
+                .AddRefitClient<IAppointmentService>()
+                .WithConfiguration(serviceEndpoints.Appointment);
 
             services.AddMvc();
         }
