@@ -30,8 +30,6 @@ namespace RealEstate.Bookmarks
         {
             app
             .UseWebService(env);
-            
-            app.UseHttpsRedirection();
             var scope = app.ApplicationServices.CreateScope();
             scope.ServiceProvider.GetService<BookmarksDbContext>().Database.Migrate();
         }

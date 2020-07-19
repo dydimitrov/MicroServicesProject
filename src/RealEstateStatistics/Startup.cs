@@ -27,7 +27,7 @@ namespace RealEstateStatistics
                 .AddWebService<StatisticDbContext>(this.Configuration)
                 .AddTransient<IDataSeeder, StatisticsDataSeeder>()
                 .AddTransient<IStatisticService, StatisticService>()
-                .AddMessaging(typeof(PropertyCreateConsumer))
+                .AddMessaging(typeof(PropertyCreateConsumer), typeof(AppointmentCreateConsumer), typeof(NewsLetterCreateConsumer))
                 .AddControllers();
         }
 
@@ -37,8 +37,6 @@ namespace RealEstateStatistics
             app
             .UseWebService(env)
             .Initialize();
-
-            app.UseHttpsRedirection();
             var scope = app.ApplicationServices.CreateScope();
             scope.ServiceProvider.GetService<StatisticDbContext>().Database.Migrate();
         }

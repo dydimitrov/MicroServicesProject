@@ -64,41 +64,7 @@ services:
         networks: 
             - realestatesystem-network
         depends_on:
-            - data 
-            
-    bookmarks:
-        container_name: bookmarks
-        build:
-            context: ./
-            dockerfile: ./RealEstateBookmarks/Dockerfile
-        ports: 
-            - "5010:80"
-        env_file: RealEstateSystem/Common.env
-        environment:
-            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstateBookmarksDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true
-        restart: on-failure
-        volumes:
-            - ./.aspnet/bookmarks/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
-        networks: 
-            - realestatesystem-network
-        depends_on:
-            - data 
-            
-    bookmarksgateway:
-        container_name: bookmarksgateway
-        build:
-            context: ./
-            dockerfile: ./RealEstateBookmarksGateway/Dockerfile
-        ports: 
-            - "5012:80"
-        env_file: RealEstateSystem/Common.env
-        volumes:
-            - ./.aspnet/bookmarksgateway/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
-        networks: 
-            - realestatesystem-network
-        depends_on:
-            - bookmarks 
-            - properties
+            - data                         
             
     appointment:
         container_name: appointment
@@ -153,6 +119,23 @@ services:
         depends_on:
             - data
             
+    bookmarks:
+        container_name: bookmarks
+        build:
+            context: ./
+            dockerfile: ./RealEstateBookmarks/Dockerfile
+        ports: 
+            - "5010:80"
+        env_file: RealEstateSystem/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=RealEstateBookmarksDatabase;User Id=sa; Password=Password1234@@;MultipleActiveResultSets=true
+        restart: on-failure
+        volumes:
+            - ./.aspnet/bookmark/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - realestatesystem-network
+        depends_on:
+            - data
 networks:
     realestatesystem-network:
 

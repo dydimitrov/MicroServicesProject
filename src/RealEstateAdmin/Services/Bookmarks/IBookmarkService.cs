@@ -12,7 +12,7 @@ namespace RealEstate.Services.Bookmarks
         Task<bool> Create(string username, int propertyId);
 
         [Get("/Bookmarks/Delete")]
-        Task<Bookmark> Delete(int id);
+        Task<bool> Delete(int id);
 
         [Get("/Bookmarks/MyBookmarks")]
         Task<IEnumerable<Bookmark>> MyBookmarks(string username);

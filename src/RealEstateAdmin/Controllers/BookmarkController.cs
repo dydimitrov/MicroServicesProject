@@ -33,7 +33,7 @@ namespace RealEstate.Controllers
                 
         public async Task<IActionResult> Remove(int id)
         {
-            await this._service.Delete(id);
+            var result = await this._service.Delete(id);
             return this.RedirectToAction("MyBookmarks","Bookmark");
         }
 

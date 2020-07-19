@@ -44,6 +44,5 @@ namespace RealEstate.Bookmarks.Controllers
         [Route("/Bookmarks/MyBookmarks")]
         public async Task<IEnumerable<Bookmark>> MyBookmarks(string username)
             => await _context.Bookmarks.Where(x => x.Username == username).ToListAsync();
-            
     }
 }

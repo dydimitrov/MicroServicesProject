@@ -39,8 +39,6 @@ namespace RealEstateNewsLetter
         {
             app
             .UseWebService(env);
-
-            app.UseHttpsRedirection();
             var scope = app.ApplicationServices.CreateScope();
             scope.ServiceProvider.GetService<NewsLetterDbContext>().Database.Migrate();
         }
