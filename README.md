@@ -6,8 +6,7 @@ README
 This README would normally document whatever steps are necessary to get your application up and running.
 
 Prerequisite
-Visual Studio 2017
-.Net Framework 4.7.2 installed on your local instance
+Visual Studio 2019
 Installed Docker for Windows: https://docs.docker.com/docker-for-windows/install/
 
 How do I get set up?
